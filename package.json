@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "n8n on clevercloud",
     "dependencies": {
-        "n8n": "0.170.0"
+        "n8n": "0.169.0"
     },
     "scripts": {
         "start": "./run.sh"
@@ -11,9 +11,9 @@
     "author": "Loic Tosser <wowi42>",
     "license": "ISC",
     "bugs": {
-        "url": "https://github.com/wowi42/n8n-clever-cloud-1/issues"
+        "url": "hhttps://github.com/ClementHostache/n8n-clever/issues"
     },
-    "homepage": "https://github.com/wowi42/n8n-clever-cloud-1#readme",
+    "homepage": "https://github.com/ClementHostache/n8n-clever#readme",
     "engines": {
         "node": "^14"
     }

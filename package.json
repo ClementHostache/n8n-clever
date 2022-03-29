@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "n8n on clevercloud",
     "dependencies": {
-        "n8n": "0.168.2"
+        "n8n": "0.170.0"
     },
     "scripts": {
         "start": "./run.sh"

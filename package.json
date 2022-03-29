@@ -11,7 +11,7 @@
     "author": "Loic Tosser <wowi42>",
     "license": "ISC",
     "bugs": {
-        "url": "hhttps://github.com/ClementHostache/n8n-clever/issues"
+        "url": "https://github.com/ClementHostache/n8n-clever/issues"
     },
     "homepage": "https://github.com/ClementHostache/n8n-clever#readme",
     "engines": {

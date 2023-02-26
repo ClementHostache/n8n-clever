@@ -15,6 +15,6 @@
     },
     "homepage": "https://github.com/ClementHostache/n8n-clever#readme",
     "engines": {
-        "node": "^16"
+        "node": "^19"
     }
 }

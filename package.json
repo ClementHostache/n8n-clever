@@ -4,10 +4,10 @@
   "description": "n8n on clevercloud",
   "dependencies": {
     "n8n": "2.14.2",
-    "sqlite3": "^5.1.7"
+    "sqlite3": "5.1.7"
   },
   "scripts": {
-    "postinstall": "npm rebuild sqlite3",
+    "postinstall": "npm install sqlite3@5.1.7 --build-from-source",
     "start": "./run.sh"
   },
   "author": "Loic Tosser <wowi42>",

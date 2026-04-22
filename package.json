@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "description": "n8n on clevercloud",
   "dependencies": {
-    "n8n": "2.14.2"
+    "n8n": "2.14.2",
+    "sqlite3": "^5.1.7"
   },
   "scripts": {
+    "postinstall": "npm rebuild sqlite3",
     "start": "./run.sh"
   },
   "author": "Loic Tosser <wowi42>",
@@ -15,6 +17,6 @@
   },
   "homepage": "https://github.com/ClementHostache/n8n-clever#readme",
   "engines": {
-    "node": "^22"
+    "node": "22.x"
   }
 }

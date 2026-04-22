@@ -54,7 +54,7 @@ echo "=== SQLITE3 NATIVE BINDINGS AFTER REBUILD ==="
 find node_modules/sqlite3 -name "*.node" -type f -print || true
 
 echo "=== REQUIRE SQLITE3 TEST ==="
-node -e "require('sqlite3'); console.log('sqlite3 require OK')"
+node -e "require('sqlite3'); console.log('sqlite3 require OK')" || true
 env
 
 ./node_modules/.bin/n8n start

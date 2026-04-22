@@ -2,7 +2,7 @@
 
 set -e
 
-set -x
+# set -x
 
 export N8N_PORT=$PORT
 
@@ -20,7 +20,8 @@ export DB_POSTGRESDB_USER=$POSTGRESQL_ADDON_USER
 
 export DB_POSTGRESDB_PASSWORD=$POSTGRESQL_ADDON_PASSWORD
 
-export GENERIC_TIMEZONE="UTC"
+export GENERIC_TIMEZONE="UTC"export GENERIC_TIMEZONE="Europe/Paris"
+export TZ="Europe/Paris"
 
 if [ -z "$N8N_HOST" ]
 
@@ -31,31 +32,8 @@ then
 fi
 
 echo "Host: $N8N_HOST"
-echo "=== NODE / NPM VERSION ==="
-node -v
-npm -v
 
-echo "=== PACKAGE.JSON ==="
-cat package.json
-
-echo "=== SQLITE3 INSTALLED ? ==="
-npm ls sqlite3 || true
-
-echo "=== SQLITE3 FILES BEFORE REBUILD ==="
-find node_modules/sqlite3 -maxdepth 5 -type f | sort || true
-
-echo "=== SQLITE3 NATIVE BINDINGS BEFORE REBUILD ==="
-find node_modules/sqlite3 -name "*.node" -type f -print || true
-
-echo "=== REBUILD SQLITE3 RUNTIME ==="
-npm rebuild sqlite3 --build-from-source --verbose
-
-echo "=== SQLITE3 NATIVE BINDINGS AFTER REBUILD ==="
-find node_modules/sqlite3 -name "*.node" -type f -print || true
-
-echo "=== REQUIRE SQLITE3 TEST ==="
-node -e "require('sqlite3'); console.log('sqlite3 require OK')" || true
-env
+# env
 
 ./node_modules/.bin/n8n start
 

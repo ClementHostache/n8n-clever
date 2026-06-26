@@ -2,11 +2,6 @@
 
 set -e
 
-unset npm_lifecycle_event
-unset npm_lifecycle_script
-unset npm_config_argv
-unset npm_command
-
 export N8N_PORT="$PORT"
 export N8N_PROTOCOL="https"
 
@@ -21,6 +16,10 @@ export GENERIC_TIMEZONE="Europe/Paris"
 export TZ="Europe/Paris"
 
 export N8N_LISTEN_ADDRESS="${N8N_LISTEN_ADDRESS:-0.0.0.0}"
+export N8N_USER_FOLDER="${N8N_USER_FOLDER:-/tmp/n8n-user}"
+
+mkdir -p "$N8N_USER_FOLDER"
+chmod 700 "$N8N_USER_FOLDER" || true
 
 if [ -z "$N8N_HOST" ]; then
   export N8N_HOST="$(echo "$APP_ID" | tr '_' '-').cleverapps.io"
@@ -28,15 +27,14 @@ fi
 
 echo "Host: $N8N_HOST"
 echo "Port: $N8N_PORT"
-
-export N8N_USER_FOLDER="${N8N_USER_FOLDER:-/tmp/n8n-user}"
-mkdir -p "$N8N_USER_FOLDER"
-chmod 700 "$N8N_USER_FOLDER" || true
-
 echo "N8N_USER_FOLDER: $N8N_USER_FOLDER"
 ls -ld "$N8N_USER_FOLDER"
+
+echo "n8n binary:"
+command -v n8n
+
 echo "n8n version:"
-./node_modules/.bin/n8n --version || true
+n8n --version
 
 echo "Starting n8n..."
-exec env -u npm_lifecycle_event -u npm_lifecycle_script -u npm_config_argv -u npm_command ./node_modules/.bin/n8n
+exec n8n

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "n8n on clevercloud",
   "dependencies": {
-    "n8n": "2.27.4",
+    "n8n": "2.26.8",
     "sqlite3": "5.1.7"
   },
   "scripts": {

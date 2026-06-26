@@ -31,4 +31,5 @@ echo "Port: $N8N_PORT"
 echo "n8n version:"
 ./node_modules/.bin/n8n --version || true
 
-exec ./node_modules/.bin/n8n
+echo "Starting n8n..."
+exec env -u npm_lifecycle_event -u npm_lifecycle_script -u npm_config_argv -u npm_command ./node_modules/.bin/n8n

@@ -28,6 +28,13 @@ fi
 
 echo "Host: $N8N_HOST"
 echo "Port: $N8N_PORT"
+
+export N8N_USER_FOLDER="${N8N_USER_FOLDER:-/tmp/n8n-user}"
+mkdir -p "$N8N_USER_FOLDER"
+chmod 700 "$N8N_USER_FOLDER" || true
+
+echo "N8N_USER_FOLDER: $N8N_USER_FOLDER"
+ls -ld "$N8N_USER_FOLDER"
 echo "n8n version:"
 ./node_modules/.bin/n8n --version || true
 

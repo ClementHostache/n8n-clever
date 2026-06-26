@@ -2,6 +2,11 @@
 
 set -e
 
+unset npm_lifecycle_event
+unset npm_lifecycle_script
+unset npm_config_argv
+unset npm_command
+
 export N8N_PORT="$PORT"
 export N8N_PROTOCOL="https"
 
@@ -23,5 +28,7 @@ fi
 
 echo "Host: $N8N_HOST"
 echo "Port: $N8N_PORT"
+echo "n8n version:"
+./node_modules/.bin/n8n --version || true
 
 exec ./node_modules/.bin/n8n

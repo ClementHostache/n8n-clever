@@ -2,20 +2,11 @@
   "name": "n8n-clever-cloud",
   "version": "1.0.0",
   "description": "n8n on clevercloud",
-  "dependencies": {
-    "n8n": "2.26.8",
-    "sqlite3": "5.1.7"
-  },
+  "private": true,
   "scripts": {
-    "postinstall": "echo POSTINSTALL_IS_RUNNING && npm rebuild sqlite3 --build-from-source --verbose && find node_modules/sqlite3 -name \"*.node\" -type f -print",
-    "start": "./run.sh"
+    "postinstall": "npm install -g n8n@2.26.8",
+    "start": "bash ./run.sh"
   },
-  "author": "Loic Tosser <wowi42>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ClementHostache/n8n-clever/issues"
-  },
-  "homepage": "https://github.com/ClementHostache/n8n-clever#readme",
   "engines": {
     "node": "22.x"
   }

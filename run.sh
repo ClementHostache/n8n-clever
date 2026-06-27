@@ -2,6 +2,8 @@
 
 set -e
 
+export PATH="$PWD/.n8n-runtime/node_modules/.bin:$PATH"
+
 export N8N_PORT="$PORT"
 export N8N_PROTOCOL="https"
 
@@ -30,8 +32,14 @@ echo "Port: $N8N_PORT"
 echo "N8N_USER_FOLDER: $N8N_USER_FOLDER"
 ls -ld "$N8N_USER_FOLDER"
 
+echo "PATH: $PATH"
 echo "n8n binary:"
-command -v n8n
+command -v n8n || {
+  echo "ERROR: n8n binary not found"
+  echo "Listing .n8n-runtime:"
+  find ./.n8n-runtime -maxdepth 4 -type f -name "n8n" -o -name "n8n.js" || true
+  exit 1
+}
 
 echo "n8n version:"
 n8n --version

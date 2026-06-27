@@ -4,7 +4,7 @@
   "description": "n8n on clevercloud",
   "private": true,
   "scripts": {
-    "postinstall": "npm install -g n8n@2.26.8",
+    "postinstall": "npm install --prefix ./.n8n-runtime n8n@2.26.8 --omit=dev --no-audit --no-fund",
     "start": "bash ./run.sh"
   },
   "engines": {
